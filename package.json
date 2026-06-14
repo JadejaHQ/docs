@@ -49,7 +49,7 @@
       "defaut": "./dist/src/*.d.ts"
     },
     ".": {
-      "types": "./dist/main.d.ts",
+      "types": "./dist/src/main.d.ts",
       "import": "./dist/main.js",
       "default": "./dist/main.js"
     }
