@@ -8,6 +8,7 @@ import type { DocsConfig } from "@/types/config";
 ================================================================================================ */
 
 export interface ContentBaseOptions {
+  fetchAlwaysLastModified?: boolean;
   search: CreateSearchInstanceOptions;
   trailingSlash: DocsConfig["trailingSlash"];
 }

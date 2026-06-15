@@ -5,6 +5,7 @@
 /* ============================================================================================= */
 
 import debounce from "@jadeja/ts/lib/debounce";
+import { throwError } from "@jadeja/ts/lib/logger";
 import { useState, useEffect, startTransition, useRef, createContext, useContext } from "react";
 
 import { XIcon } from "@/components/assets/icons";
@@ -33,7 +34,7 @@ export const useSearchContext = () => {
   const context = useContext(SearchContext);
 
   if (!context) {
-    throw new Error("components must be used inside SearchRoot");
+    return throwError("components must be used inside SearchRoot");
   }
 
   return context;

@@ -155,6 +155,10 @@ export interface Link {
   title?: string;
 }
 
+export type NavigationLink = Omit<Link, "url"> & {
+  url: Link["url"] | `/${string}`;
+};
+
 export type AuthorLink = Omit<Link, "icon"> & {
   img?: string;
 };

@@ -2,6 +2,7 @@
 
 /* ============================================================================================= */
 
+import { throwError } from "@jadeja/ts/lib/logger";
 import { default as NextLink } from "next/link.js";
 import { usePathname } from "next/navigation.js";
 
@@ -25,7 +26,7 @@ export const Link = ({ href, navLink, ...rest }: LinkProps): ReactElement<HTMLAn
   const pathname = usePathname();
 
   if (!href) {
-    throw new Error("`href` prop is missing!");
+    return throwError("`href` prop is missing!");
   }
 
   // open external link in new tab

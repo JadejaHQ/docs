@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0-alpha.5
+
+### Minor Changes
+
+- feat: add new `fetchAlwaysLastModified` content base option
+
+### Patch Changes
+
+- fix: app navigation link types
+- chore: use `throwError` method from `@jadeja/ts` in components
+- chore: add comment for loading dynamic modules
+
 ## 1.0.0-alpha.4
 
 ### Patch Changes

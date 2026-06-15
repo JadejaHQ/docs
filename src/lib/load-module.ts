@@ -31,6 +31,10 @@ export const loadModule = async ({ content, slugs }: LoadModuleOptions): LoadMod
 
   try {
     // dynamically import `.mdx` file as module
+    // NOTE: if bundler can't resolve the dynamic module, add alias with aboslute path
+    // NOTE: `"@/content": resolve(import.meta.dirname, "src/content")`
+    // TODO: find a more reliable way
+    //
     // oxlint-disable-next-line typescript/no-unsafe-assignment
     const dynamicModule: DocsModuleType = await import(
       `@/content/${content.paths.dir}/${filePath}`
