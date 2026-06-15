@@ -18,13 +18,12 @@ html {
   @border thick-bottom;
 
   height: var(--banner);
-}
 
-/* ============================================================================================= */
-
-.banner {
-  @layout is-flex;
-  @flex items-center justify-center;
-  @size h-full;
-  @space gap-2;
+  /* keep this here to increase specificity over `.container` styles */
+  .banner {
+    @layout is-flex;
+    @flex items-center justify-center;
+    @size h-full;
+    @space gap-2;
+  }
 }

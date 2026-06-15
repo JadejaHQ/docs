@@ -45,7 +45,7 @@ export const MicrosoftClarity = ({
           t.src="https://www.clarity.ms/tag/"+i;
           y = l.getElementsByTagName(r)[0];
           y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", ${id});
+        })(window, document, "clarity", "script", "${id}");
       `}
     </Script>
   );

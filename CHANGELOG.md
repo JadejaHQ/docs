@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.8
+
+### Patch Changes
+
+- fix: banner specificity issue and ms clarity undefined id issue
+
 ## 1.0.0-alpha.7
 
 ### Patch Changes
