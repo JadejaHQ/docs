@@ -32,7 +32,7 @@ export interface DocsConfig {
     HTMLElements?: MDXComponents;
     TSXComponents?: MDXComponents;
   };
-  shilpConfig: ShilpConfig;
+  shilpConfig: Partial<ShilpConfig>;
   trailingSlash?: boolean;
 
   getNextConfig: (options: { githubPages?: boolean }) => NextConfig;
@@ -64,7 +64,10 @@ export interface DocsConfig {
   USER CONFIG
 ================================================================================================ */
 
-export type UserConfig = Omit<DocsConfig, "getNextConfig" | "getWebpackConfig" | "constants"> & {
+export type UserConfig = Omit<
+  DocsConfig,
+  "getNextConfig" | "getWebpackConfig" | "constants" | "mdxConfig" | "shilpConfig"
+> & {
   analytics?: Partial<Analytics>;
   constants: RequiredConstants & OptionalConstants;
   mdxConfig?: Partial<NextMDXOptions>;

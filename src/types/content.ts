@@ -1,3 +1,5 @@
+import type { DumpOptions } from "js-yaml";
+
 import type { CreateSearchInstanceOptions } from "@/lib/search";
 import type { DocsConfig } from "@/types/config";
 
@@ -9,6 +11,7 @@ import type { DocsConfig } from "@/types/config";
 
 export interface ContentBaseOptions {
   fetchAlwaysLastModified?: boolean;
+  frontMatterFormatting?: Partial<DumpOptions>;
   search: CreateSearchInstanceOptions;
   trailingSlash: DocsConfig["trailingSlash"];
 }

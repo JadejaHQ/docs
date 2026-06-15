@@ -85,6 +85,10 @@ export class Content<U extends Record<string, unknown> = {}> {
       instance.options.fetchAlwaysLastModified = process.env.NODE_ENV === "production";
     }
 
+    if (!("frontMatterFormatting" in instance.options)) {
+      instance.options.frontMatterFormatting = { indent: 2, lineWidth: 100, quotingType: '"' };
+    }
+
     instance.paths ??= paths;
 
     // register methods, so `this` would point to singleton instance and not this class
@@ -395,7 +399,7 @@ export class Content<U extends Record<string, unknown> = {}> {
           // add modified frontmatter back to file (full rewrite)
           writeFileSync(
             filePATH,
-            `---\n${dump(fields, { indent: 2, lineWidth: 100 })}---\n\n${body}`,
+            `---\n${dump(fields, this.options.frontMatterFormatting)}---\n\n${body}`,
             "utf8",
           );
         }
