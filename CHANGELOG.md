@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0-alpha.7
+
+### Patch Changes
+
+- fix: `UserConfig` optional types
+- feat: add new `frontMatterFormatting` base content option to prevent redundant formatting
+
 ## 1.0.0-alpha.6
 
 ### Patch Changes
