@@ -4,7 +4,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative, resolve, sep } from "node:path";
 import { cwd } from "node:process";
 
-import { log, throwError } from "@jadeja/ts/lib/logger";
+import { throwError } from "@jadeja/ts/lib/logger";
 import { Singleton } from "@jadeja/ts/lib/singleton";
 import { isStr } from "@jadeja/ts/lib/types";
 import frontMatter from "front-matter";
@@ -398,8 +398,6 @@ export class Content<U extends Record<string, unknown> = {}> {
             `---\n${dump(fields, { indent: 2, lineWidth: 100 })}---\n\n${body}`,
             "utf8",
           );
-
-          log(`Frontmatter updated :: ${filePATH}`);
         }
 
         Object.assign(fullMeta, {
