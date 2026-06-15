@@ -24,7 +24,7 @@ export interface DocsConfig {
   analytics?: Analytics;
   constants: Constants;
   links: {
-    navigations: Record<string, Link>;
+    navigations: Record<string, NavigationLink>;
     socials: Record<string, Link>;
   };
   mdxConfig: NextMDXOptions;
