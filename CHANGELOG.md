@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-alpha.6
+
+### Patch Changes
+
+- fix: `UserConfig` optional types and remove frontmatter update log
+
 ## 1.0.0-alpha.5
 
 ### Minor Changes

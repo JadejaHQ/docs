@@ -67,8 +67,8 @@ export interface DocsConfig {
 export type UserConfig = Omit<DocsConfig, "getNextConfig" | "getWebpackConfig" | "constants"> & {
   analytics?: Partial<Analytics>;
   constants: RequiredConstants & OptionalConstants;
-  mdxConfig?: NextMDXOptions;
-  shilpConfig?: ShilpConfig;
+  mdxConfig?: Partial<NextMDXOptions>;
+  shilpConfig?: Partial<ShilpConfig>;
 };
 
 /* ================================================================================================
