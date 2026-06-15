@@ -24,7 +24,7 @@ export interface DocsConfig {
   analytics?: Analytics;
   constants: Constants;
   links: {
-    navigations: Record<string, Link>;
+    navigations: Record<string, NavigationLink>;
     socials: Record<string, Link>;
   };
   mdxConfig: NextMDXOptions;
@@ -154,6 +154,10 @@ export interface Link {
   icon?: (props: SVGProps) => SVGEl;
   title?: string;
 }
+
+export type NavigationLink = Omit<Link, "url"> & {
+  url: Link["url"] | `/${string}`;
+};
 
 export type AuthorLink = Omit<Link, "icon"> & {
   img?: string;

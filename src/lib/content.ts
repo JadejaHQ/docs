@@ -80,6 +80,11 @@ export class Content<U extends Record<string, unknown> = {}> {
 
     instance.options ??= options;
 
+    if (!("fetchAlwaysLastModified" in instance.options)) {
+      // oxlint-disable-next-line node/no-process-env
+      instance.options.fetchAlwaysLastModified = process.env.NODE_ENV === "production";
+    }
+
     instance.paths ??= paths;
 
     // register methods, so `this` would point to singleton instance and not this class
@@ -368,16 +373,23 @@ export class Content<U extends Record<string, unknown> = {}> {
 
         const fields = attributes;
 
-        if (!fields.title || !fields.description || !fields.keywords || !fields.authors) {
+        if (!fields.title || !fields.description || !fields.keywords || !fields.authors?.length) {
           return throwError(
             `Missing frontmatter [title, description, keywords, authors] field(s) in ${filePATH} with index ${index}`,
           );
         }
 
-        if (!fields.publishedAt || !fields.lastModifiedAt) {
+        if (!fields.publishedAt || !fields.lastModifiedAt || this.options.fetchAlwaysLastModified) {
+          //
+          let { lastModifiedAt } = fields;
+
+          if (!lastModifiedAt || this.options.fetchAlwaysLastModified) {
+            lastModifiedAt = getLastModified(filePATH);
+          }
+
           Object.assign(fields, {
             publishedAt: fields.publishedAt ?? new Date().toISOString(),
-            lastModifiedAt: fields.lastModifiedAt ?? getLastModified(filePATH),
+            lastModifiedAt,
           });
 
           // add modified frontmatter back to file (full rewrite)
